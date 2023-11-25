@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.example.todoapplication.ui.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/detayGecis"
+            app:destination="@id/detaySayfaFragment" />
+        <action
+            android:id="@+id/kayitGecis"
+            app:destination="@id/kayitSayfaFragment" />
+        <argument android:name="tarih"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/kayitSayfaFragment"
+        android:name="com.example.todoapplication.ui.fragment.KayitSayfaFragment"
+        android:label="fragment_kayit_sayfa"
+        tools:layout="@layout/fragment_kayit_sayfa" >
+        <action
+            android:id="@+id/kayittanAnasayfayaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detaySayfaFragment"
+        android:name="com.example.todoapplication.ui.fragment.DetaySayfaFragment"
+        android:label="fragment_detay_sayfa"
+        tools:layout="@layout/fragment_detay_sayfa" >
+        <argument
+            android:name="yapilacak"
+            app:argType="com.example.todoapplication.data.entity.CardData" />
+        <action
+            android:id="@+id/detaydanAnasayfayaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+</navigation>
